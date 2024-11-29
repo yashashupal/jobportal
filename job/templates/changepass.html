@@ -1,0 +1,147 @@
+
+{% load static %}
+
+{% include "header.html" %}
+{% comment %} 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> {% endcomment %}
+
+
+
+
+<div class="row">
+    <div class="col-sm-3">
+{% comment %} 
+      <div class="btn-group-vertical" style="margin-left: 100px;">
+        <a href="/myaccount/"><button type="button" class="btn btn-primary" style="margin-top: 20px; margin-left: 100; width: 250px;"> Dashboard  </button></a>
+        <a href="/postdashboard2/"><button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 100; width: 250px;">Company Profile</button></a>
+         <a href="/postjob/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">Post New Job</button></a>
+         <a href="/postdashboard4/"> <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 100; width: 250px;">Manage My Jobs</button></a>
+         <a href="/postdashboard5/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">View Candidates</button></a>
+         <a href="/postdashboard6/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">Password Change</button></a>
+         <a href="/logout/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">Log Out</button></a>
+        </div> {% endcomment %}
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="col-sm-9">
+
+
+
+        {% comment %} <div class="row" style="max-width: 96%;height: 180px; margin: 20px;margin-right: 0%;  padding-top: 20px;  border:  10px #29ad55c4 solid;">
+            <div class="col-sm-3">
+                <img src="{% static 'images/background.jpg' %}" alt="" width="70%" height="90%">
+            </div>
+            <div class="col-sm-4">
+                <div class="text-white rounded" style="width: 100%; height: 100%;">
+                    <h5 style="color:#5BC07C;">Jumbotron Example</h5>
+                    <p style="color: black; margin-top: 0%;">Lorem ipsum... <br> Lorem ipsum... <br> Lorem ipsum...</p>
+                   
+                  </div>
+                  
+            </div>
+            <div class="col-sm-2">.
+               
+            </div>
+            <div class="col-sm-3">
+                <div class="text-white rounded" style="width: 100%; height: 100%;">
+                    <!-- <h5 style="color:#6690CA;">Jumbotron Example</h5> -->
+                    <p style="color: black; margin-top: 0%;">Lorem ipsum... <br> Lorem ipsum... <br> Lorem ipsum...</p>
+                   
+                  </div>
+            </div>
+          </div> {% endcomment %}
+
+
+
+        <div class="card text-white bg-success mb-3" style="max-width: 100%; margin: 20px;">
+            <div class="card-header">Change Password </div>
+            <div class="card-body"  style="background-color: #F8F9FA; color: #464444;">
+
+              <form action="" method="post" name="change_password" onsubmit="return checkPassword" >
+                {% csrf_token %}
+
+                {% comment %} <div class="container" style="float: left; width: 100%;">
+                    <div class="row" style="margin-top: 10px;" >
+                      <div class="col-2">
+                        Old Password
+                      </div>
+                      <div class="col-8">
+                        <div class="form-group">
+                            <input type="text" name="old" required placeholder="Old Password" id="form3Example1cg" class="form-control" />
+                        </div>
+                      </div>
+                    </div> {% endcomment %}
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                      <div class="col-2">
+                        New Password
+                      </div>
+                      <div class="col-8">
+                        <div class="form-group">
+                            <input type="text" name="new" required placeholder="New Password" id="form3Example1cg" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-2">
+                          Conform Password
+                        </div>
+                        <div class="col-8">
+                          <div class="form-group">
+                              <input type="text" name="conform" required placeholder="Conform Password" id="form3Example1cg" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <input type="hidden" name="user_id" value="{{user_id}}">
+                      
+                    <div class="row" style="margin-top: 10px;" >
+                     
+                      <div class="col-10">
+                       
+                      </div>
+                      <div class="col-8">
+                        <div class="form-group">
+                          <center>
+                            <input type="submit"  id="form3Example1cg" class="btn btn-primary" style="width: 250px;"/>
+                          </center>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+
+    </div>
+  </div>
+  {% comment %}
+   <!-- <script>
+    function checkPassword(){
+      if (document.change_password.new.value != document.change_password.conform.value){
+        alert("New password and Conform Password field does not match each other.");
+        document.change_password.conform.focus();
+        return false;
+      }
+      return true;
+    }
+    {% if alert %}
+    alert("Password Update Successfilly.")
+    document.location="/logout"
+    {% endif %}
+  
+    {% if curntpassword %}
+    alert("Current Password is Wrong..")
+    document.location="/postdashboard6"
+    {% endif %}
+  </script> {% endcomment %}
+   -->

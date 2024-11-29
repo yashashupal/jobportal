@@ -1,0 +1,496 @@
+
+{% load static %}
+
+{% include "header.html" %}
+
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+ 
+ <style>
+  /*Profile Pic Start*/
+.picture-container{
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+}
+.picture{
+    width: 106px;
+    height: 106px;
+    background-color: #999999;
+    border: 4px solid #CCCCCC;
+    color: #FFFFFF;
+    /* border-radius: 50%; */
+    margin: 0px auto;
+    overflow: hidden;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+}
+.picture:hover{
+    border-color: #2ca8ff;
+}
+.content.ct-wizard-green .picture:hover{
+    border-color: #05ae0e;
+}
+.content.ct-wizard-blue .picture:hover{
+    border-color: #3472f7;
+}
+.content.ct-wizard-orange .picture:hover{
+    border-color: #ff9500;
+}
+.content.ct-wizard-red .picture:hover{
+    border-color: #ff3b30;
+}
+.picture input[type="file"] {
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0 !important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.picture-src{
+    width: 100%;
+    
+}
+/*Profile Pic End*/
+
+
+
+
+</style>
+
+
+
+<div class="row">
+    <div class="col-sm-3">
+
+
+        <div class="btn-group-vertical" style="margin-left: 100px;">
+          <a href="/myaccount/"><button type="button" class="btn btn-primary" style="margin-top: 20px; margin-left: 100; width: 250px;"> Dashboard  </button></a>
+          <a href="/postdashboard2/"><button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 100; width: 250px;">Company Profile</button></a>
+           <a href="/postjob/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">Post New Job</button></a>
+           <a href="/postdashboard4/"> <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 100; width: 250px;">Manage My Jobs</button></a>
+           <a href="/postdashboard5/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">View Candidates</button></a>
+           <a href="/postdashboard6/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">Password Change</button></a>
+           <a href="/logout/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">Log Out</button></a>
+          </div>
+
+
+
+
+
+
+
+
+    </div>
+    <div class="col-sm-9">
+
+      <form method="post"  enctype="multipart/form-data" >
+              
+        {% csrf_token %}
+
+
+
+
+        <div class="card text-white bg-success mb-3" style="max-width: 100%; margin: 20px;">
+            <div class="card-header">Company Information</div>
+            <div class="card-body" style="background-color: #F8F9FA; color: #464444;">
+
+
+
+                <div class="container" style="float: left; width: 80%;">
+                    <div class="row" style="margin-top: 10px;">
+                      <div class="col-3">
+                        Company Name
+                      </div>
+                      <div class="col-6">
+                         <div class="form-group">
+                        <input type="text" name="companyname" placeholder="Company Name" class="form-control" id="companyName" value="{{user.clinteuser.companyname}}" required/>
+                    </div>
+
+                      </div>
+                    </div>
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                      <div class="col-3">
+                        industry
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group">
+
+                         
+
+                          <select class="form-select" aria-label="Disabled select example"  name="industry"  required >
+                             <option value="{{user.clinteuser.industry}}" selected>--Select--</option>
+                            <option value="Accounts">Accounts</option>
+
+            
+                            <option value="Advertising" >Advertising</option>
+                
+                              <option value="Agriculture" >Agriculture</option>
+                
+                                <option value="Astrology" > Astrology</option>
+                
+                                  <option value="Aviation" > Aviation</option>
+                
+                                    <option value="Banking" > Banking</option>
+                                      <option value="BPO" >  BPO</option>
+                
+                                        <option value="Customer Service"> Customer Service</option>
+                
+                                          <option value="E Commerce" > E Commerce</option>
+                
+                                            <option value="Education" >Education</option>
+                
+                                              <option value="Event Management" >Event Management</option>
+                
+                                                <option value="Finance" >Finance</option>
+                
+                                                  <option value="Food Industry" >Food Industry</option>
+                
+                
+            
+            
+            
+                                                    <option value="Graphic / Web Design" >Graphic / Web Design</option>
+            
+                                                      <option value="Hospitality" >Hospitality</option>
+            
+                                                        <option value="HR / Industrial Relations" >HR / Industrial Relations</option>
+            
+                                                          <option value="Import Export" >Import Export</option>
+            
+                                                            <option value="IT - Hardware" >IT - Hardware</option>
+            
+                                                              <option value="IT - Software" >IT - Software</option>
+            
+                                                                <option value="Legal" >Legal</option>
+            
+                                                                  <option value="Logistic" >Logistic</option>
+            
+                                                                    <option value="Pharma" >Pharma</option>
+            
+                                                                      <option value="Real State" >Real State</option>
+            
+                                                                        <option value="Teaching / Education" >Teaching / Education</option>
+            
+                                                                          <option value="Textiles" >Textiles</option>
+            
+                                                                            <option value="Trading" >Trading</option>
+            
+                                                                              <option value="Travel Industries" >Travel Industries</option>
+            
+                                                                                <option value="US/IT" >US/IT</option>
+                          
+                          </select>
+
+
+
+
+
+
+
+
+                      </div>
+                      
+                      
+                      </div>
+                    </div>
+
+
+                    
+
+
+                    <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-3">
+                          Location 
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <input type="text" name="location" value="{{user.clinteuser.location}}" placeholder="Location" class="form-control" id="location" required/>
+                        </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-3">
+                          Landline Phone 
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <input type="tel" name="landlinephone" value="{{user.clinteuser.landlinephone}}" placeholder="Landline Phone" class="form-control" id="landlinePhone" required/>
+                        </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-3">
+                          Company Description
+                        </div>
+                        <div class="col-6">
+                          
+                          <div class="form-group">
+                            <textarea class="form-control"  placeholder="Company Description...."   name="companydescription" id="companyDescription" rows="5" required>{{user.clinteuser.companydescription}}</textarea>
+
+                        </div>
+                       
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-3">
+                          Company Website
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <input type="url" name="companywebsite" placeholder="Company Website" value=" {{user.clinteuser.companywebsite}} "class="form-control" id="companyWebsite" required />
+                        </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-3">
+                          Org. Type
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <select class="form-select" aria-label="Disabled select example"  name="orgType" >
+                              <option value="{{user.clinteuser.orgType}}" selected>--select--</option>
+
+                              <option value="Orgtype">Org. Type</option>
+                                <option value="private">Private</option>
+                                <option value="Public"> Public</option>
+
+                                <option value="Government"> Government</option>
+
+                                <option value="Semi-Government"> Semi-Government</option>
+
+                                 <option value="NGO"> NGO</option>
+                            </select>
+                           
+                        </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-3">
+                          Address 
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <input type="text" name="address" placeholder="Address" value="{{user.clinteuser.address}}" class="form-control" id="address" required/>
+                        </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-3">
+                          Cell Phone
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Cell Phone" value="{{user.clinteuser.cellphone}}" name="cellphone" id="cellPhone" required/>
+                        </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-3">
+                          No. of Employees
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+
+
+
+                            <select class="form-select" aria-label="Disabled select example"  name="noofemployees" required>
+                              <option value="{{user.clinteuser.noofemployees}}" selected>No. of Employees</option>
+                              <option value="1-10" >1-10</option>
+
+
+
+<option value="11-50">11-50</option>
+
+<option value="51-100">51-100</option>
+
+<option value="101-300">101-300</option>
+
+<option value="301-600">301-600</option>
+
+  <option value="601-1000">601-1000</option>
+
+    <option value="1001-1500">1001-1500</option>
+
+      <option value="1501-2000">1501-2000.</option>
+
+        <option value="More than 2000">More than 2000</option>
+                            </select>
+
+
+
+
+
+
+                        </div>
+                        
+                        </div>
+                      </div>
+  
+  
+  
+                         
+<br><br>             
+                      
+                    <div class="row" style="margin-top: 10px;" >
+
+
+
+                      <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="width: 50%; margin-left: 150px;">
+                        UPDATE
+                      </button>
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+
+
+                      </div>
+                      <div class="container" style="float: left; width: 20%;">
+                        <div class="row" style="margin-top: 10px;">
+                          <div class="col-12">
+
+
+
+               <div class="container"> 
+
+                  
+                  <div class="picture-container">
+                    <div class="picture">
+                        <img src="{{user.clinteuser.image.url}}" class="picture-src" id="wizardPicturePreview" width="100%" height="100%" title="">
+                        <br>
+                        <input type="file" name="img" id="wizard-picture" class="">
+                      </div>
+                     <h6 class="">Company Logo</h6>
+            
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+                          </div>
+                        
+                        </div>
+                        
+                      </div>
+
+
+
+                    
+                  </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</form>
+  
+  <script>
+    $(document).ready(function(){
+      console.log("hiii")
+    
+      // Prepare the preview for profile picture
+          $("#wizard-picture").change(function(){
+              readURL(this);
+          });
+      });
+      function readURL(input) {
+      
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+      
+              reader.onload = function (e) {
+                  $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+              }
+              reader.readAsDataURL(input.files[0]);
+          }
+      }
+
+
+
+</script>
+

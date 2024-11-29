@@ -1,0 +1,162 @@
+{% load static %}
+{% block body %}
+
+{% include "header.html" %}
+
+<div class="container-xxl py-5 bg-dark page-header mb-5">
+    <div class="container my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb text-uppercase">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Header End -->
+
+
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="row g-0 about-bg rounded overflow-hidden">
+                    <div class="col-6 text-start">
+                        <img class="img-fluid w-100" src="{% static 'img/about-1.jpg'%}">
+                    </div>
+                    <div class="col-6 text-start">
+                        <img class="img-fluid" src="{% static 'img/about-2.jpg'%}" style="width: 85%; margin-top: 15%;">
+                    </div>
+                    <div class="col-6 text-end">
+                        <img class="img-fluid" src="{% static 'img/about-3.jpg'%}" style="width: 85%;">
+                    </div>
+                    <div class="col-6 text-end">
+                        <img class="img-fluid w-100" src="{% static 'img/about-4.jpg'%}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
+                <p class="mb-4">Enter The Internspire Jobs, your one-stop portal for landing your dream job. Our platform boasts a curated selection of opportunities across diverse industries, ensuring you find the perfect fit for your aspirations. We bridge the gap between qualified candidates and top employers, streamlining the recruitment process for both sides.</p>
+                <p><i class="fa fa-check text-primary me-3"></i>
+                    Search, apply, land: Simplify your job hunt with The Internspire Jobs. </p>
+                
+               
+                <p><i class="fa fa-check text-primary me-3"></i>
+                    Build your future, one step at a time. Explore internships and launch <span style="margin-left: 40px;"> your career.</span></p>
+                <p><i class="fa fa-check text-primary me-3"></i>
+                    Join The Internspire Jobs and unlock your career potential.</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>
+                    Don't just find a job, find your calling. The Internspire Jobs: Where <span style="margin-left: 40px;"> passion meets purpose.</span></p>
+                {% comment %} <a class="btn btn-primary py-3 px-5 mt-3" href="/about/">Read More</a> {% endcomment %}
+            
+                {% comment %} <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 
+<div style="padding: 10%; background-image:url('/static/img/background.jpg');" ><center>
+    <h1>The InternSpire Group</h1>
+    <p style="margin-top: 5%;">The Internspire Group: Empowering Careers, Inspiring Success
+        Welcome to The Internspire Group, where your professional journey begins! We're a passionate collective of companies dedicated to bridging the gap between education and employment, providing individuals with the tools and platforms needed to ignite their careers.</p>
+</center></div> -->
+
+<div class="card bg-dark text-white">
+    <img src="{% static 'img/aboutimg.jpg' %}" class="card-img" alt="..." style="height:300px;">
+    <div class="card-img-overlay">
+      <center>
+      <h1 class="card-title" style="margin-top: 5%; color: antiquewhite;">The InternSpire Group</h1>
+      <p class="card-text">The Internspire Group: Empowering Careers, Inspiring Success
+        Welcome to The Internspire Group, where your professional journey begins!
+        <br>
+        We're a passionate collective of companies dedicated to bridging the gap between education and employment, 
+        
+        <br>providing individuals with the tools and platforms needed to ignite their careers.</p>
+      </center>
+        {% comment %} <p class="card-text">Last updated 3 mins ago</p> {% endcomment %}
+    </div>
+  </div>
+
+
+
+
+
+
+
+<div class="card-group">
+    <div class="card">
+        <img class="card-img-top" src="{% static "img/stubbspire logo.png" %}" alt="Card image cap" style="width:40%; margin-left:25%;">
+        <div class="card-body">
+          <h5 class="card-title">StuBBspire</h5>
+          <p class="card-text">Stubbspire: (A Digital Marketing Agency) Taking Your Brand to New Heights
+  
+              But ambition extends beyond individual success. Through Stubbspire, our digital marketing agency, we empower businesses to thrive in the competitive online landscape. Our team of seasoned marketing professionals craft impactful strategies, execute high-performance campaigns, and deliver measurable results. Whether you're a budding
+               startup or an established brand.
+               {% comment %} Stubbspire propels you towards achieving your online goals. {% endcomment %}
+              </p>
+              <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="background-color:#00B074; color:rgb(252, 252, 252);">
+                  Visit Website
+                </button>
+              {% comment %} <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> {% endcomment %}
+        </div>
+      </div>
+    <div class="card" style="background-color:#00B074;">
+      <img class="card-img-top" src="{% static "img/internspire logo.png" %}" alt="Card image cap" style="width:40%; margin-left:25%;">
+      <div class="card-body" style="color: rgb(252, 252, 252);">
+        <h5 class="card-title" style="color: rgb(252, 252, 252);">The Internspire</h5>
+        <p class="card-text" >The Internspire, where innovation meets education! At Internspire, we revolutionize the internship experience by seamlessly blending theory and hands-on practice. We’re not just a company; we’re your launchpad into the professional world. With a commitment to nurturing talent, we offer unique product courses with integrated internships across diverse domains such as human resources, finance, digital marketing, software development, graphic designing, and more.</p>
+        <!-- <button style="border-radius: 50%;">Visit Website</button> -->
+        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="background-color:rgb(252, 252, 252); color:#00B074;">
+            Visit Website
+          </button>
+        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+      </div>
+    </div>
+   
+    <div class="card" style="padding-top: 2%;">
+        <a href="/" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+            <h3 class="m-0 text-primary card-img-top" > The InternSpire Jobs </h3>
+        </a>
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+      <div class="card-body">
+        <h5 class="card-title" style="margin-top:25px;">The InternSpire Jobs</h5>
+        <p class="card-text"> Enter The Internspire Jobs, your one-stop portal for landing your dream job. Our platform boasts a curated selection of opportunities across diverse industries, ensuring you find the perfect fit for your aspirations. We bridge the gap between qualified candidates and top employers, streamlining the recruitment process for both sides. Search, apply, land: Simplify your job hunt with The Internspire Jobs.
+            Build your future, one step at a time. 
+            Where passion meets purpose.
+            </p>
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="background-color:#00B074; color:rgb(252, 252, 252);">
+                Apply Now
+              </button>
+        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+      </div>
+    </div>
+  </div>
+<!-- About End -->
+
+{% include "footer.html" %}
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/wow/wow.min.js'%}"></script>
+<script src="{% static 'lib/easing/easing.min.js'%}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js'%}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js'%}"></script>
+</body>
+
+</html>
+
+
+{% endblock body %}

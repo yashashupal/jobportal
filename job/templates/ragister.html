@@ -1,0 +1,596 @@
+{% comment %} {% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+<script>
+  function checkpas() 
+ {
+  if (document.signup.password.value!=document.signup.cpassword.value) {
+    alert('Please Enter the Correct Password')
+    document.signup.cpassword.focus();
+    return false;
+  }
+    return true;
+  }
+</script>
+
+
+
+<style>
+  /*Profile Pic Start*/
+.picture-container{
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+}
+.picture{
+    width: 106px;
+    height: 106px;
+    background-color: #999999;
+    border: 4px solid #CCCCCC;
+    color: #FFFFFF;
+    border-radius: 50%;
+    margin: 0px auto;
+    overflow: hidden;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+}
+.picture:hover{
+    border-color: #2ca8ff;
+}
+.content.ct-wizard-green .picture:hover{
+    border-color: #05ae0e;
+}
+.content.ct-wizard-blue .picture:hover{
+    border-color: #3472f7;
+}
+.content.ct-wizard-orange .picture:hover{
+    border-color: #ff9500;
+}
+.content.ct-wizard-red .picture:hover{
+    border-color: #ff3b30;
+}
+.picture input[type="file"] {
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0 !important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.picture-src{
+    width: 100%;
+    
+}
+/*Profile Pic End*/
+</style>
+    <title>Hello, world!</title>
+  </head>
+  <body class="vh-100 bg-image"  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp'); padding-top: 100px; padding-bottom: 100px;">
+    <!-- <section class="vh-100 bg-image"
+   style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');"> -->
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <center style="padding:0px;">
+                <!-- <img src="{% static 'img/logo1.png' %}" alt="" width="400" height="300" style="margin-top: 0px;" ></center> -->
+              <!-- <h2 class="text-uppercase text-center mb-5" style="color: rgb(77, 216, 84);"><b> <i>Create A New Account</i></b></h2> -->
+              <form method="post" onsubmit="return checkpas()" enctype="multipart/form-data" name="signup">
+              
+                {% csrf_token %}
+
+                <div class="container">
+                
+                  <div class="picture-container">
+                      <div class="picture">
+                          <img src="https://lh3.googleusercontent.com/LfmMVU71g-HKXTCP_QWlDOemmWg4Dn1rJjxeEsZKMNaQprgunDTtEuzmcwUBgupKQVTuP0vczT9bH32ywaF7h68mF-osUSBAeM6MxyhvJhG6HKZMTYjgEv3WkWCfLB7czfODidNQPdja99HMb4qhCY1uFS8X0OQOVGeuhdHy8ln7eyr-6MnkCcy64wl6S_S6ep9j7aJIIopZ9wxk7Iqm-gFjmBtg6KJVkBD0IA6BnS-XlIVpbqL5LYi62elCrbDgiaD6Oe8uluucbYeL1i9kgr4c1b_NBSNe6zFwj7vrju4Zdbax-GPHmiuirf2h86eKdRl7A5h8PXGrCDNIYMID-J7_KuHKqaM-I7W5yI00QDpG9x5q5xOQMgCy1bbu3St1paqt9KHrvNS_SCx-QJgBTOIWW6T0DHVlvV_9YF5UZpN7aV5a79xvN1Gdrc7spvSs82v6gta8AJHCgzNSWQw5QUR8EN_-cTPF6S-vifLa2KtRdRAV7q-CQvhMrbBCaEYY73bQcPZFd9XE7HIbHXwXYA=s200-no" class="picture-src" id="wizardPicturePreview" title="">
+                          <input type="file" name="img" id="wizard-picture" required class="">
+                      </div>
+                       <h6 class="">Choose Picture</h6>
+              
+                  </div>
+              </div>
+            </center>
+              <br>
+              <br>
+              <div class="form-row">
+                <div class="form-outline mb-8 form-group col-6">
+                  <label class="form-label" for="form3Example1cg">First Name</label>
+                  <input type="text" name="fname" required placeholder="First Name" id="form3Example1cg" class="form-control form-control-lg" />
+                  
+                </div>
+                <div class="form-outline mb-8 form-group col-6">
+                  <label class="form-label" for="form3Example1cg">Last Name</label>
+                  <input type="text" name="lname" required placeholder="Last Name" id="form3Example1cg" class="form-control form-control-lg" />
+                  
+                </div>
+              </div>
+                <div class="form-outline mb-8">
+                  <label class="form-label" for="form3Example1cg">Contact No.</label>
+                  <input type="tel" name="contact" required placeholder="Phone No." id="form3Example1cg" class="form-control form-control-lg" />
+                  
+                </div>
+
+                <div class="form-outline mb-8">
+                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                  <input type="email" name="email"  required placeholder="Email" id="form3Example3cg" class="form-control form-control-lg" />
+                </div>
+                
+              <div class="form-row">
+                <label class="form-label form-group col-12" for="form3Example1cg">Gender</label><br>
+                <!-- <div style="border: 1px solid lightgrey; padding: 5px; border-radius: 6px;" class="form-group col-12"> -->
+                <div class="form-outline mb-8 form-group col-6" style="float: left;">
+                  
+                  <input type="radio" name="gender" value="MALE" required/>
+                  <label class="form-label" for="form3Example1cg">MALE</label>
+                  
+                  <input type="radio" name="gender" value="feMALE" required/>
+                  <label class="form-label" for="form3Example1cg">  FEMALE</label>
+                  
+                </div>
+              </div>
+            <!-- </div> -->
+                
+              <div class="form-row"> 
+                <div class="form-outline mb-8 form-group col-6">
+                  <label class="form-label" for="form3Example4cg">Password</label>
+                  <input type="password" name="password" required placeholder="password" id="form3Example4cg" class="form-control form-control-lg" />
+                </div>
+                
+    
+                <div class="form-outline mb-8 form-group col-6">
+                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                  <input type="password" name="cpassword" required placeholder="Conform Password" id="form3Example4cdg" class="form-control form-control-lg" />
+                </div>
+                
+                <div class="form-outline mb-8">
+                  <label class="form-label" for="form3Example3cg">Upload Your CV/RESUME</label>
+                  <input type="file" name="RESUME"  required  id="form3Example3cg" class="form-control form-control-lg" />
+                </div>
+                
+              </div>
+              <br>
+              <br>
+                <!-- <div class="form-check d-flex justify-content-center mb-5">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" /> <br>
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div> -->
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'userlogin' %}"
+                    class="fw-bold text-body">
+                    <u>Login here</u>
+                  </a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </section> -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+   <script>
+    $(document).ready(function(){
+// Prepare the preview for profile picture
+    $("#wizard-picture").change(function(){
+        readURL(this);
+    });
+});
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
+
+
+</body>
+</html>
+ {% endcomment %}
+
+
+
+
+
+
+
+
+ {% load static %}
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
+ <script>
+     function checkpas() 
+    {
+     if (document.signup.password.value!=document.signup.cpassword.value) {
+       alert('Please Enter the Correct Password')
+       document.signup.cpassword.focus();
+       return false;
+     }
+       return true;
+     }
+   </script>
+   
+   
+   
+   
+   <style>
+     /*Profile Pic Start*/
+   .picture-container{
+       position: relative;
+       cursor: pointer;
+       text-align: center;
+   }
+   .picture{
+       width: 106px;
+       height: 106px;
+       background-color: #999999;
+       border: 4px solid #CCCCCC;
+       color: #FFFFFF;
+       border-radius: 50%;
+       margin: 0px auto;
+       overflow: hidden;
+       transition: all 0.2s;
+       -webkit-transition: all 0.2s;
+   }
+   .picture:hover{
+       border-color: #2ca8ff;
+   }
+   .content.ct-wizard-green .picture:hover{
+       border-color: #05ae0e;
+   }
+   .content.ct-wizard-blue .picture:hover{
+       border-color: #3472f7;
+   }
+   .content.ct-wizard-orange .picture:hover{
+       border-color: #ff9500;
+   }
+   .content.ct-wizard-red .picture:hover{
+       border-color: #ff3b30;
+   }
+   .picture input[type="file"] {
+       cursor: pointer;
+       display: block;
+       height: 100%;
+       left: 0;
+       opacity: 0 !important;
+       position: absolute;
+       top: 0;
+       width: 100%;
+   }
+   
+   .picture-src{
+       width: 100%;
+       
+   }
+   /*Profile Pic End*/
+   </style>
+ <!-- Include the above in your HEAD tag -->
+ <style>
+     .register{
+     background: -webkit-linear-gradient(left, #0e7929, #aaf1a8);
+     margin-top: 3%;
+     padding: 3%;
+ }
+ .register-left{
+     text-align: center;
+     color: #fff;
+     margin-top: 4%;
+ }
+ .register-left input{
+     border: none;
+     border-radius: 1.5rem;
+     padding: 2%;
+     width: 60%;
+     background: #f8f9fa;
+     font-weight: bold;
+     color: #383d41;
+     margin-top: 30%;
+     margin-bottom: 3%;
+     cursor: pointer;
+ }
+ .register-right{
+     background: #f8f9fa;
+     border-top-left-radius: 10% 50%;
+     border-bottom-left-radius: 10% 50%;
+ }
+ .register-left img{
+     margin-top: 15%;
+     margin-bottom: 5%;
+     width: 25%;
+     -webkit-animation: mover 2s infinite  alternate;
+     animation: mover 1s infinite  alternate;
+ }
+ @-webkit-keyframes mover {
+     0% { transform: translateY(0); }
+     100% { transform: translateY(-20px); }
+ }
+ @keyframes mover {
+     0% { transform: translateY(0); }
+     100% { transform: translateY(-20px); }
+ }
+ .register-left p{
+     font-weight: lighter;
+     padding: 12%;
+     margin-top: -9%;
+ }
+ .register .register-form{
+     padding: 10%;
+     margin-top: 10%;
+ }
+ .btnRegister{
+     float: right;
+     margin-top: 10%;
+     border: none;
+     border-radius: 1.5rem;
+     padding: 2%;
+     background: #16723f;
+     color: #fff;
+     font-weight: 600;
+     width: 50%;
+     cursor: pointer;
+ }
+ .register .nav-tabs{
+     margin-top: 3%;
+     border: none;
+     background: #379644;
+     border-radius: 1.5rem;
+     width: 28%;
+     float: right;
+ }
+ .register .nav-tabs .nav-link{
+     padding: 2%;
+     height: 34px;
+     font-weight: 600;
+     color: #fff;
+     border-top-right-radius: 1.5rem;
+     border-bottom-right-radius: 1.5rem;
+ }
+ .register .nav-tabs .nav-link:hover{
+     border: none;
+ }
+ .register .nav-tabs .nav-link.active{
+     width: 100px;
+     color: #00cc4e;
+     border: 2px solid #01af4a;
+     border-top-left-radius: 1.5rem;
+     border-bottom-left-radius: 1.5rem;
+ }
+ .register-heading{
+     text-align: center;
+     margin-top: 8%;
+     margin-bottom: -15%;
+     color: #495057;
+ }
+ </style>
+ 
+ <div class="container register">
+     <form method="post" onsubmit="return checkpas()" enctype="multipart/form-data" name="signup">
+               
+         {% csrf_token %}
+                     <div class="row">
+                     <div class="col-md-3 register-left">
+                         <img src="{% static 'img/logo1.png' %}" alt=""/>
+                         <h3>Welcome</h3>
+                         <p>You are 30 seconds away from earning your own money!</p>
+                         <a href="/userlogin/"><input type="button" name="" value="Login"/>
+                          </a> <br/>
+                     </div>
+                     <div class="col-md-9 register-right">
+                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                             <li class="nav-item">
+                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="{% url 'ragister' %}" role="tab" aria-controls="home" aria-selected="true">Job Seekar</a>
+                             </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="/clinteragister/" role="tab" aria-controls="profile" aria-selected="true">Employer</a>
+                             </li>
+                         </ul>
+                         <div class="tab-content" id="myTabContent">
+                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                 <h3 class="register-heading">Apply as a Employee</h3> <br><br><br><br>
+                                 <center>
+                                     <div class="container" style="margin-top: 50px; margin-bottom: 0%;" >
+                                     
+                                         <div class="picture-container">
+                                             <div class="picture">
+                                                
+                                                 <img src="https://lh3.googleusercontent.com/LfmMVU71g-HKXTCP_QWlDOemmWg4Dn1rJjxeEsZKMNaQprgunDTtEuzmcwUBgupKQVTuP0vczT9bH32ywaF7h68mF-osUSBAeM6MxyhvJhG6HKZMTYjgEv3WkWCfLB7czfODidNQPdja99HMb4qhCY1uFS8X0OQOVGeuhdHy8ln7eyr-6MnkCcy64wl6S_S6ep9j7aJIIopZ9wxk7Iqm-gFjmBtg6KJVkBD0IA6BnS-XlIVpbqL5LYi62elCrbDgiaD6Oe8uluucbYeL1i9kgr4c1b_NBSNe6zFwj7vrju4Zdbax-GPHmiuirf2h86eKdRl7A5h8PXGrCDNIYMID-J7_KuHKqaM-I7W5yI00QDpG9x5q5xOQMgCy1bbu3St1paqt9KHrvNS_SCx-QJgBTOIWW6T0DHVlvV_9YF5UZpN7aV5a79xvN1Gdrc7spvSs82v6gta8AJHCgzNSWQw5QUR8EN_-cTPF6S-vifLa2KtRdRAV7q-CQvhMrbBCaEYY73bQcPZFd9XE7HIbHXwXYA=s200-no" class="picture-src" id="wizardPicturePreview" title="">
+                                                <br>
+                                                 <input type="file" name="img" id="wizard-picture" required class="">
+                                             
+                                              
+                                           </div>
+                                           <h6 class="" >Choose Picture</h6>
+                                         </div>
+                                     </div>
+                                   </center>
+                                 <div class="row register-form" style="margin-top: 0%;">
+                                   
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <input type="text" name="fname" required placeholder="First Name" id="form3Example1cg" class="form-control"/>
+                                         </div>
+                                         <div class="form-group">
+                                             <input type="email" name="email"  required placeholder="Email" id="form3Example3cg" class="form-control" />
+                                         </div>
+                                         <div class="form-group">
+                                             <input type="password" name="password" required placeholder="password" id="form3Example4cg" class="form-control" />
+                                         </div>
+                                         <!-- <div class="form-group">
+                                             <input type="email" name="email"  required placeholder="Email" id="form3Example3cg" class="form-control form-control-lg" />
+                                         </div> -->
+                                         <div class="form-group">
+                                             <!-- <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" /> -->
+                                        
+                                         <input type="file" name="RESUME" value="Upload Your CV/RESUME"  required  id="form3Example3cg" class="form-control" />
+                                     
+                                         <label class="form-label" for="form3Example3cg"> <h5 style="color: #999999;"> Upload Your CV/RESUME </h5></label>  
+                                     </div>
+ 
+                                         
+                                     </div>
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <input type="text" name="lname" required placeholder="Last Name" id="form3Example1cg" class="form-control" />
+                                         </div>
+                                         <div class="form-group">
+                                             <input type="tel" name="contact" required placeholder="Phone No." id="form3Example1cg" class="form-control" />
+                                         </div>
+                                         <div class="form-group">
+                                             <input type="password" name="cpassword" required placeholder="Conform Password" id="form3Example4cdg" class="form-control" />
+                                         </div>
+                                         <!-- <div class="form-group">
+                                             <select class="form-control">
+                                                 <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                 <option>What is your Birthdate?</option>
+                                                 <option>What is Your old Phone Number</option>
+                                                 <option>What is your Pet Name?</option>
+                                             </select>
+                                         </div>
+                                         <div class="form-group">
+                                             <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
+                                         </div> -->
+                                         <!-- <div class="form-outline mb-8"> -->
+                                             <div class="form-group">
+                                                 <div class="maxl">
+                                                     <label class="radio inline"> 
+                                                       <h5>  <input type="radio" name="gender" value="MALE" required class="form-control">
+                                                         <span>  Male </span>
+                                                     </h5> 
+                                                     </label>
+                                                     <label class="radio inline"> 
+                                                         <h5>
+                                                         <input type="radio" name="gender" value="FEMALE" class="form-control">
+                                                         <span>  Female </span> 
+                                                     </h5>
+                                                     </label>
+                                                 </div>
+                                             </div>
+                                             
+                                         <input type="submit" class="btnRegister"  value="Register"/>
+                                     </div>
+
+
+
+
+
+
+                                     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 </div>
+                             </div>
+                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                 <h3  class="register-heading">Apply as a Hirer</h3>
+                                 <div class="row register-form">
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                         </div>
+                                         <div class="form-group">
+                                             <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                         </div>
+                                         <div class="form-group">
+                                             <input type="email" class="form-control" placeholder="Email *" value="" />
+                                         </div>
+                                         <div class="form-group">
+                                             <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                         </div>
+ 
+ 
+                                     </div>
+                                     <div class="col-md-6">
+                                         <div class="form-group">
+                                             <input type="password" class="form-control" placeholder="Password *" value="" />
+                                         </div>
+                                         <div class="form-group">
+                                             <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                         </div>
+                                         <div class="form-group">
+                                             <select class="form-control">
+                                                 <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                 <option>What is your Birthdate?</option>
+                                                 <option>What is Your old Phone Number</option>
+                                                 <option>What is your Pet Name?</option>
+                                             </select>
+                                         </div>
+                                         <div class="form-group">
+                                             <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                                         </div>
+                                         <input type="submit" class="btnRegister"  value="Register"/>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+ 
+             </div>
+             <script>
+                 $(document).ready(function(){
+             // Prepare the preview for profile picture
+                 $("#wizard-picture").change(function(){
+                     readURL(this);
+                 });
+             });
+             function readURL(input) {
+                 if (input.files && input.files[0]) {
+                     var reader = new FileReader();
+             
+                     reader.onload = function (e) {
+                         $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+                     }
+                     reader.readAsDataURL(input.files[0]);
+                 }
+             }
+             </script>
+             
+             
+             

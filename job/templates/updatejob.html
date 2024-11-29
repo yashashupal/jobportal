@@ -1,0 +1,346 @@
+
+{% load static %}
+
+{% include "header.html" %}
+{% comment %} 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ {% endcomment %}
+
+
+
+<div class="row">
+    <div class="col-sm-3">
+
+      <div class="btn-group-vertical" style="margin-left: 100px;">
+        <a href="/myaccount/"><button type="button" class="btn btn-primary" style="margin-top: 20px; margin-left: 100; width: 250px;"> Dashboard  </button></a>
+        <a href="/postdashboard2/"><button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 100; width: 250px;">Company Profile</button></a>
+         <a href="/postjob/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">Post New Job</button></a>
+         <a href="/postdashboard4/"> <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 100; width: 250px;">Manage My Jobs</button></a>
+         <a href="/postdashboard5/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">View Candidates</button></a>
+         <a href="/postdashboard6/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">Password Change</button></a>
+         <a href="/logout/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">Log Out</button></a>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+    <div class="col-sm-9">
+
+
+
+        {% comment %} <div class="row" style="max-width: 96%;height: 180px; margin: 20px;margin-right: 0%;  padding-top: 20px;  border:  10px #29ad55c4 solid;">
+            <div class="col-sm-3">
+                <img src="{% static 'images/background.jpg' %}" alt="" width="70%" height="90%">
+            </div>
+            <div class="col-sm-4">
+                <div class="text-white rounded" style="width: 100%; height: 100%;">
+                    <h5 style="color:#5BC07C;">Jumbotron Example</h5>
+                    <p style="color: black; margin-top: 0%;">Lorem ipsum... <br> Lorem ipsum... <br> Lorem ipsum...</p>
+                   
+                  </div>
+                  
+            </div>
+            <div class="col-sm-2">.
+               
+            </div>
+            <div class="col-sm-3">
+                <div class="text-white rounded" style="width: 100%; height: 100%;">
+                    <!-- <h5 style="color:#6690CA;">Jumbotron Example</h5> -->
+                    <p style="color: black; margin-top: 0%;">Lorem ipsum... <br> Lorem ipsum... <br> Lorem ipsum...</p>
+                   
+                  </div>
+            </div>
+          </div> {% endcomment %}
+
+          <form method="post" onsubmit="return checkpas()" enctype="multipart/form-data" name="signup" >
+              
+            {% csrf_token %}
+
+        <div class="card text-white bg-success mb-3" style="max-width: 100%; margin: 20px;">
+            <div class="card-header">Post New Job </div>
+            <div class="card-body" style="background-color: #F8F9FA; color: #464444;">
+
+
+
+                <div class="container" style="float: left; width: 100%;">
+                    <div class="row" style="margin-top: 10px;">
+                      <div class="col-2">
+                        Job title
+                      </div>
+                      <div class="col-8">
+                        <div class="form-group">
+                          <input type="text" value="{{data.jobtitle}}"  name="jobtitle" required placeholder="Job title" id="form3Example1cg" class="form-control form-control-lg" />
+                        </div>
+                      </div>
+                    </div>
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                      <div class="col-2">
+                        No. Of Vacancies
+                      </div>
+                      <div class="col-8">
+                        <div class="form-group">
+                          <input type="text" value="{{data.vacancies}}" name="vacancies" required placeholder="No. Of Vacancies" id="form3Example1cg" class="form-control form-control-lg" />
+                        </div>
+                      </div>
+                    </div>
+
+
+                    
+
+
+                    <div class="row" style="margin-top: 10px;">
+                     
+                        <div class="col-2">
+                          experience
+
+                        </div>
+                        <div class="col-8">
+                          <div class="form-group">
+                         
+                             
+                <select class="form-select" aria-label="Default select example" name="experience" id="form3Example1cg" class="form-control form-control-lg" style="width:100%;">
+                  <option >experience</option>
+                  <option value="{{data.experience}}" selected >--Select--</option>
+                  <option value="0-1" >0-1</option>
+                  <option value="1-2" >1-2</option>
+                  <option value="2-5" >2-5</option>
+                  <option value="more">5+More</option>
+                </select>
+                          </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;">
+                     
+                        <div class="col-2">
+                          Job Mode
+
+                        </div>
+                        <div class="col-8">
+                          <div class="form-group">
+                            <select class="form-select"  name="jobmode" id="form3Example1cg" class="form-control form-control-lg" style="width:100%;">
+                              <option  value="Full time">Full Time</option>
+                              <option value="{{data.jobmode}}" selected>--Select--</option>
+                              <option value="Part time">Part Time</option>
+                              <option value="Remot">Remot</option>
+                            </select>  </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-2">
+                          Salary Offer (Rs.)
+                        </div>
+                        
+                        <div class="col-8" >
+                          <div class="form-group">
+                            <input type="text" value="{{data.minsalary}}" id="salary" name="salary1" placeholder="Minimum Salary" required  class="form-control form-control-lg" style=" width: 45%; float: left;" > <span style="float: left;"> &nbsp; &nbsp; &nbsp; &nbsp;</span> 
+                            <input type="text" value="{{data.maxsalary}}" id="salary" name="salary2" placeholder="Maximum salary" required  class="form-control form-control-lg" style=" width: 45%;  margin-left: 5px; padding-left:20px ;">
+                          
+                            
+                          </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-2">
+                          Apply Before
+                        </div>
+                        <div class="col-8">
+                          <div class="form-group">
+                            <input type="date" value="{{data.applybefor}}" id="applyBefore" name="applybefore" required id="form3Example1cg" class="form-control form-control-lg"  ><br>
+                          </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-2">
+                          Location
+                        </div>
+                        <div class="col-8">
+                          <div class="form-group">
+                            <input type="text" value="{{data.location}}" id="location" name="location" placeholder="India, Madhya Pradesh" required id="form3Example1cg" class="form-control form-control-lg" ><br>
+                  </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-2">
+                          Qualification
+                        </div>
+                        <div class="col-8">
+                          <div class="form-group">
+                            <input type="text" value="{{data.qualification}}" id="location" name="qualification" placeholder="10th,12th,Bechlors,Masters,Phd" required id="form3Example1cg" class="form-control form-control-lg" ><br>
+                     </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-2">
+                         Job Description 
+
+                        </div>
+                        <div class="col-8">
+                          <div class="form-group">
+                            <textarea id="jobDescription" name="jobDescription" rows="4" cols="50" id="form3Example1cg" class="form-control form-control-lg" placeholder="Job Description" >{{data.jobdiscription}}</textarea><br>
+                   </div>
+                        </div>
+                      </div>
+  
+  
+  
+                      
+
+
+                      <div class="row" style="margin-top: 10px;" >
+                     
+                        <div class="col-2">
+                          <!-- <h1>Set of Skills</h1>
+                           <br> -->
+                          Add Skill
+                        </div>
+                        <div class="col-8">
+                          <div class="form-group">
+                            <input type="text" value="{{data.skill}}" id="skill" name="skill" id="form3Example1cg" class="form-control form-control-lg"  ><br>
+                          </div>
+                        </div>
+                      </div>
+  
+  
+  
+                                      
+                      
+                    <div class="row" style="margin-top: 10px;" >
+                      <div class="col-2">
+                       
+                      </div>
+
+                      <div class="col-8">
+                        <div class="form-group">
+                          <center>
+                            <input type="submit"  id="form3Example1cg" class="btn btn-primary" value="Post" style="width: 250px;" />
+                          </center>
+                          </div>
+                      </div>
+                      <!-- <div class="col-4"> -->
+                        <!-- <img src="{% static 'images/background.jpg' %}" alt="" width="70%" height="90%" style="margin-left: 50px;"> -->
+            
+                        
+                      <!-- </div> -->
+                    </div>
+
+
+
+
+
+                    <!-- <div class="row"> -->
+                        <!-- <div class="col-2">
+                          Your Name
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                              <input type="text" name="lname" required placeholder="Last Name" id="form3Example1cg" class="form-control" />
+                          </div>
+                        </div> -->
+                        <!-- <div class="col-4"> -->
+                          <!-- <img src="{% static 'images/background.jpg' %}" alt="" width="100%" height="90%" style="margin-left: 50px;"> -->
+              
+                          
+                        <!-- </div> -->
+                     
+
+
+
+                    
+                  </div>
+            </div>
+          </div>
+          <!-- <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Danger card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+          <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Warning card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div> -->
+          <!-- <div class="card text-white bg-info mb-3" style="max-width: 100%;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Info card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+          <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Light card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div> -->
+          <!-- <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Dark card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div> -->
+
+
+
+
+</form>
+
+
+    </div>
+  </div>

@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+	font-family: Arial, sans-serif;
+}
+
+header {
+	background-color: #333;
+	color: white;
+	padding: 10px;
+	text-align: center;
+}
+
+nav ul {
+	background-color: #333;
+	list-style-type: none;
+	padding: 0;
+	overflow: hidden;
+}
+
+nav ul li {
+	float: left;
+}
+
+nav ul li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+nav ul li a:hover {
+	background-color: #111;
+}
+
+main {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 20px;
+}
+
+section {
+	flex: 70%;
+}
+
+aside {
+	flex: 30%;
+	margin-left: 20px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+footer {
+	background-color: #333;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+    </style>
+</head>
+<body>
+	<header>
+		<h1>Job Portal: Employer Dashboard</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#">Dashboard</a></li>
+			<li><a href="#">Company Profile</a></li>
+			<li><a href="#">Post New Job</a></li>
+			<li><a href="#">Manage My Jobs</a></li>
+			<li><a href="#">View Candidates</a></li>
+			<li><a href="#">Password Change</a></li>
+			<li><a href="#">Contact Us</a></li>
+		</ul>
+	</nav>
+	<main>
+		<section>
+			<h2>Current Openings: 1</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Job Title</th>
+						<th>Location</th>
+						<th>Applications Received</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Software Engineer</td>
+						<td>Madhya Pradesh, India</td>
+						<td>0</td>
+						<td><button>View</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<aside>
+			<h3>Company Profile</h3>
+			<p>YAP technology<br>
+			Staff Members: 11-50<br>
+			www.yashpal.com<br>
+			<button>Edit Company Profile</button></p>
+			<h3>Current Jobs</h3>
+			<p>No job posted</p>
+		</aside>
+	</main>
+	<footer>
+		<p>Welcome, YASH!</p>
+		<p>1234567890</p>
+		<p>17°C Sunny</p>
+		<button>Logout</button>
+	</footer>
+</body>
+<script>
+    // Add event listener to logout button
+document.querySelector('footer button').addEventListener('click', function() {
+	// Logout logic here
+});0
+</script>
+</html>

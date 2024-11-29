@@ -1,0 +1,174 @@
+
+{% load static %}
+
+{% comment %} {% include "header.html" %} {% endcomment %}
+{% comment %} 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ {% endcomment %}
+
+
+
+<div class="row">
+    <div class="col-sm-3">
+
+
+      <div class="btn-group-vertical" style="margin-left: 100px;">
+        <a href="/myaccount/"><button type="button" class="btn btn-primary" style="margin-top: 20px; margin-left: 100; width: 250px;"> Dashboard  </button></a>
+        <a href="/postdashboard2/"><button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 100; width: 250px;">Company Profile</button></a>
+         <a href="/postjob/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">Post New Job</button></a>
+         <a href="/postdashboard4/"> <button type="button" class="btn btn-primary" style="margin-top: 10px; margin-left: 100; width: 250px;">Manage My Jobs</button></a>
+         <a href="/postdashboard5/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">View Candidates</button></a>
+         <a href="/postdashboard6/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">Password Change</button></a>
+         <a href="/logout/"> <button type="button" class="btn btn-primary"  style="margin-top: 10px; margin-left: 100; width: 250px;">Log Out</button></a>
+        
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="col-sm-9">
+
+
+
+        <div class="row" style="max-width: 96%;height: 180px; margin: 20px;margin-right: 0%;  padding-top: 15px; padding-bottom: 15px;  border:  10px #29ad55c4 solid;">
+            <div class="col-sm-3">
+              {% if user.studentuser %}
+                <img src="{{user.studentuser.image.url}}" alt="" width="70%" height="80%">
+              {% elif  user.clinteuser%}
+              <img src="{{user.clinteuser.image.url}}" alt="" width="70%" height="80%">
+              {% endif %}
+            </div>
+            <div class="col-sm-4">
+                <div class="text-white rounded" style="width: 100%; height: 100%;">
+                    <h5 style="color:#5BC07C;"> <span>{{user.first_name}}</span>    <span>{{user.last_name}}</span></h5>
+                    <p style="color: black; margin-top: 0%;">Current Org. type :   {{user.clinteuser.orgtype}} <br>Staff Members :  {{user.clinteuser.noofemployees}}  <br><a href="{{user.clinteuser.companywebsite}}">{{user.clinteuser.companywebsite}}</a></p>
+                   
+                  </div>
+                  
+            </div>
+            <div class="col-sm-1">.
+               
+            </div>
+            <div class="col-sm-4">
+                <div class="text-white rounded" style="width: 100%; height: 100%;">
+                    <!-- <h5 style="color:#6690CA;">Jumbotron Example</h5> -->
+                    <p style="color: black; margin-top: 0%;">Contact No.: {{user.clinteuser.landlinephone}},{{user.clinteuser.cellphone}}  <br>Email : {{user.email}}<br>Location : {{user.clinteuser.location}}</p>
+                   
+                  </div>
+            </div>
+          </div>
+          
+
+
+        <div class="card text-white bg-success mb-3" style="max-width: 100%; margin: 20px;">
+            <div class="card-header">About Company</div>
+            <div class="card-body" style="background-color: #F8F9FA; color: #464444;">
+              {% comment %} <h5 class="card-title">Primary card title</h5> {% endcomment %}
+              <p class="card-text">{{user.clinteuser.companydescription}}.</p>
+            </div>
+          </div>
+          <div class="card text-white bg-success mb-3" style="max-width: 100%; margin: 20px;">
+            <div class="card-header">Job Applications Received</div>
+            <div class="card-body" style="background-color: #F8F9FA; color: #464444;">
+              <h5 class="card-title">Secondary card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+          <div class="card text-white bg-success mb-3" style="max-width: 100%; margin: 20px;">
+            <div class="card-header">Current Jobs in {{user.clinteuser.companyname}}</div>
+            <div class="card-body" style="background-color: #F8F9FA; color: #464444;">
+              <h5 class="card-title">Success card title</h5>
+              <p class="card-text">
+                
+              {% for i in userpo %}
+              <a href="/job-detail/{{i.id}}/" style="color:black;">
+              
+              <div class="job-item p-4 mb-4">
+                  <div class="row g-4">
+                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                          {% comment %} {% if i.companylogo %} {% endcomment %}
+                          <img class="flex-shrink-0 img-fluid border rounded" src="{{i.userid.clinteuser.image.url}}" alt="" style="width: 80px; height: 80px;">
+                          {% comment %} {% endif %} {% endcomment %}
+                          <div class="text-start ps-4">
+                              <h5 class="mb-3">{{i.jobtitle}}</h5>
+                              <br>
+                              <p class="ptag">{{i.jobdiscription | truncatechars:50}}....
+                              <a href="/job-detail/{{i.id}}/"  style="text-align: center; margin: auto;">Read More</a></p> <br>
+                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{i.location}}</span>
+                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{i.jobmode}}</span>
+                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>Rs {{i.minsalary}} - Rs{{i.maxsalary}} </span> <br>
+                              <span class="text-truncate me-0"><i class="bi bi-person text-primary me-2"></i>{{i.userid.first_name}}</span>
+                          </div>
+                      </div>
+                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                          <div class="d-flex mb-3">
+                              <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                              <a class="btn btn-primary" href="">Apply Now</a>
+                          </div>
+                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{i.created|date}}</small>
+                      </div>
+                  </div>
+                  
+              </div>
+              
+              {% endfor %}
+            </a>
+
+
+
+
+              </p>
+            </div>
+          </div>
+          <!-- <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Danger card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+          <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Warning card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div> -->
+          <!-- <div class="card text-white bg-info mb-3" style="max-width: 100%;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Info card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+          <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Light card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div> -->
+          <!-- <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Dark card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div> -->
+
+
+
+
+
+
+
+    </div>
+  </div>
